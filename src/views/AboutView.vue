@@ -1,8 +1,11 @@
 <template>
   <div>
-    <div id="editor"></div>
+    <row>
+      <div id="editor"></div>
+    </row>
+    
     <div id="chart">
-      <apexchart type="rangeBar" height="350" :options="chartOptions" :series="series" ></apexchart>
+      <apexchart type="rangeBar" width="800" height="500" :options="chartOptions" :series="series" ></apexchart>
     </div>
   </div>
 </template>
@@ -114,8 +117,8 @@ export default {
   mounted() {
         this.editor = new Editor({
           el: document.querySelector('#editor'),
-          height: '500px',
-          initialEditType: 'markdown',
+          height: '800px',
+          initialEditType: 'wysiwyg',
           previewStyle: 'vertical'
         });
 
