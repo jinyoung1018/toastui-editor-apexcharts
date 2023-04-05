@@ -1,12 +1,28 @@
 <template>
   <div>
-    <row>
-      <div id="editor"></div>
-    </row>
-    
-    <div id="chart">
-      <apexchart type="rangeBar" width="800" height="500" :options="chartOptions" :series="series" ></apexchart>
+         <!-- <col id="editor" width="800"> -->
+    <div class="container" id="editor" width="800"></div>  
+
+    <div class="container mt-5" width="800" > 
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">내용</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">시작 날짜</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">종료 날짜</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+    </div>   
+
+    <div  class="container" id="chart" width="800">
+      <apexchart type="rangeBar" height="500" :options="chartOptions" :series="series" ></apexchart>
     </div>
+    
+    
   </div>
 </template>
 
@@ -117,7 +133,7 @@ export default {
   mounted() {
         this.editor = new Editor({
           el: document.querySelector('#editor'),
-          height: '800px',
+          height: '500px',
           initialEditType: 'wysiwyg',
           previewStyle: 'vertical'
         });
