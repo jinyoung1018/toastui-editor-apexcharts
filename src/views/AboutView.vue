@@ -8,6 +8,10 @@
         <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" v-model="newInfo">
       </div>
       <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">세부항목</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" v-model="newDetail">
+      </div>
+      <div class="input-group mb-3">
         <span class="input-group-text" id="inputGroup-sizing-default">시작 날짜</span>
         <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" v-model="startDate">
       </div>
@@ -46,6 +50,12 @@ export default {
       newInfo: "",
       startDate: "",
       endDate: "",
+      newDetail: "",
+      x: "",
+      y:[],
+      data:[],
+      name: "",
+      
       
       components: {
           apexchart: VueApexCharts
@@ -108,133 +118,133 @@ export default {
 
       // },
       series: [
-            {
-              name: 'Bob',
-              data: [
-                {
-                  x: 'Design',
-                  y: [
-                    new Date('2019-03-05').getTime(),
-                    new Date('2019-03-08').getTime()
-                  ]
-                },
-                {
-                  x: 'Code',
-                  y: [
-                    new Date('2019-03-02').getTime(),
-                    new Date('2019-03-05').getTime()
-                  ]
-                },
-                {
-                  x: 'Code',
-                  y: [
-                    new Date('2019-03-05').getTime(),
-                    new Date('2019-03-07').getTime()
-                  ]
-                },
-                {
-                  x: 'Test',
-                  y: [
-                    new Date('2019-03-03').getTime(),
-                    new Date('2019-03-09').getTime()
-                  ]
-                },
-                {
-                  x: 'Test',
-                  y: [
-                    new Date('2019-03-08').getTime(),
-                    new Date('2019-03-11').getTime()
-                  ]
-                },
-                {
-                  x: 'Validation',
-                  y: [
-                    new Date('2019-03-11').getTime(),
-                    new Date('2019-03-16').getTime()
-                  ]
-                },
-                {
-                  x: 'Design',
-                  y: [
-                    new Date('2019-03-01').getTime(),
-                    new Date('2019-03-03').getTime()
-                  ],
-                }
-              ]
-            },
-            {
-              name: 'Joe',
-              data: [
-                {
-                  x: 'Design',
-                  y: [
-                    new Date('2019-03-02').getTime(),
-                    new Date('2019-03-05').getTime()
-                  ]
-                },
-                {
-                  x: 'Test',
-                  y: [
-                    new Date('2019-03-06').getTime(),
-                    new Date('2019-03-16').getTime()
-                  ],
-                  goals: [
-                    {
-                      name: 'Break',
-                      value: new Date('2019-03-10').getTime(),
-                      strokeColor: '#CD2F2A'
-                    }
-                  ]
-                },
-                {
-                  x: 'Code',
-                  y: [
-                    new Date('2019-03-03').getTime(),
-                    new Date('2019-03-07').getTime()
-                  ]
-                },
-                {
-                  x: 'Deployment',
-                  y: [
-                    new Date('2019-03-20').getTime(),
-                    new Date('2019-03-22').getTime()
-                  ]
-                },
-                {
-                  x: 'Design',
-                  y: [
-                    new Date('2019-03-10').getTime(),
-                    new Date('2019-03-16').getTime()
-                  ]
-                }
-              ]
-            },
-            {
-              name: 'Dan',
-              data: [
-                {
-                  x: 'Code',
-                  y: [
-                    new Date('2019-03-10').getTime(),
-                    new Date('2019-03-17').getTime()
-                  ]
-                },
-                {
-                  x: 'Validation',
-                  y: [
-                    new Date('2019-03-05').getTime(),
-                    new Date('2019-03-09').getTime()
-                  ],
-                  goals: [
-                    {
-                      name: 'Break',
-                      value: new Date('2019-03-07').getTime(),
-                      strokeColor: '#CD2F2A'
-                    }
-                  ]
-                },
-              ]
-            }
+            // {
+            //   name: 'Bob',
+            //   data: [
+            //     {
+            //       x: 'Design',
+            //       y: [
+            //         new Date('2019-03-05').getTime(),
+            //         new Date('2019-03-08').getTime()
+            //       ]
+            //     },
+                // {
+                //   x: 'Code',
+                //   y: [
+                //     new Date('2019-03-02').getTime(),
+                //     new Date('2019-03-05').getTime()
+                //   ]
+                // },
+                // {
+                //   x: 'Code',
+                //   y: [
+                //     new Date('2019-03-05').getTime(),
+                //     new Date('2019-03-07').getTime()
+                //   ]
+                // },
+                // {
+                //   x: 'Test',
+                //   y: [
+                //     new Date('2019-03-03').getTime(),
+                //     new Date('2019-03-09').getTime()
+                //   ]
+                // },
+                // {
+                //   x: 'Test',
+                //   y: [
+                //     new Date('2019-03-08').getTime(),
+                //     new Date('2019-03-11').getTime()
+                //   ]
+                // },
+                // {
+                //   x: 'Validation',
+                //   y: [
+                //     new Date('2019-03-11').getTime(),
+                //     new Date('2019-03-16').getTime()
+                //   ]
+                // },
+                // {
+                //   x: 'Design',
+                //   y: [
+                //     new Date('2019-03-01').getTime(),
+                //     new Date('2019-03-03').getTime()
+                //   ],
+                // }
+            //   ]
+            // },
+            //  {
+            //    name: 'Joe',
+            //    data: [
+            //      {
+            //        x: 'Design',
+            //        y: [
+            //          new Date('2019-03-02').getTime(),
+            //          new Date('2019-03-05').getTime()
+            //        ]
+            //      },
+            //      {
+            //        x: 'Test',
+            //        y: [
+            //          new Date('2019-03-06').getTime(),
+            //          new Date('2019-03-16').getTime()
+            //        ],
+            //        goals: [
+            //          {
+            //            name: 'Break',
+            //            value: new Date('2019-03-10').getTime(),
+            //            strokeColor: '#CD2F2A'
+            //          }
+            //        ]
+            //      },
+            //      {
+            //        x: 'Code',
+            //        y: [
+            //          new Date('2019-03-03').getTime(),
+            //          new Date('2019-03-07').getTime()
+            //        ]
+            //      },
+            //      {
+            //        x: 'Deployment',
+            //        y: [
+            //          new Date('2019-03-20').getTime(),
+            //          new Date('2019-03-22').getTime()
+            //        ]
+            //      },
+            //      {
+            //        x: 'Design',
+            //        y: [
+            //          new Date('2019-03-10').getTime(),
+            //          new Date('2019-03-16').getTime()
+            //        ]
+            //      }
+            //    ]
+            //  },
+            //  {
+            //    name: 'Dan',
+            //    data: [
+            //      {
+            //        x: 'Code',
+            //        y: [
+            //          new Date('2019-03-10').getTime(),
+            //          new Date('2019-03-17').getTime()
+            //        ]
+            //      },
+            //      {
+            //        x: 'Validation',
+            //        y: [
+            //          new Date('2019-03-05').getTime(),
+            //          new Date('2019-03-09').getTime()
+            //        ],
+            //        goals: [
+            //          {
+            //            name: 'Break',
+            //            value: new Date('2019-03-07').getTime(),
+            //            strokeColor: '#CD2F2A'
+            //          }
+            //        ]
+            //      },
+            //    ]
+            //  }
           ],
           chartOptions: {
             chart: {
@@ -292,19 +302,53 @@ export default {
       // validation
 
 
-      this.series[0].data.push({
-        x: this.newInfo,
-        y: [
-            new Date(this.startDate).getTime(),
-            new Date(this.endDate).getTime()],
-        fillColor:  '#008FFB'
-      });
+      // this.series[0].data.push({
+      //   x: this.newInfo,
+      //   y: [
+      //       new Date(this.startDate).getTime(),
+      //       new Date(this.endDate).getTime()],
+      //   fillColor:  '#008FFB'
+      // });
+      const ydata = [
+        new Date(this.startDate).getTime(),
+        new Date(this.endDate).getTime()
+      ]
+
+      const inputdata = [
+        {
+          y : ydata,
+          x : this.newDetail
+        }
+      ]
+      
+
+      this.series.push(
+        {
+          name : this.newInfo,
+          data : inputdata
+        }
+      )
+
+      console.log(this.series)
+      console.log(inputdata)
+
+      
+      
+      // this.series[0].data.push({
+       
+      //   x: this.newDetail,
+      //   y: [
+      //       new Date(this.startDate).getTime(),
+      //       new Date(this.endDate).getTime()
+      //       ]
+
+      // })
+      // this.series[0].name = this.newInfo;
+      // console.log(this.series);
       this.newInfo= '';
       this.startDate= '';
       this.endDate= '';
-      
-      
-
+      this.newDetail='';
     },
    
   }
