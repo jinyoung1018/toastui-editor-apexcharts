@@ -30,7 +30,7 @@
       <apexchart type="rangeBar" height="800" :options="chartOptions" :series="series" ></apexchart>
     </div> -->
     <div class="container" id="chart" width="800">
-      <apexchart type="rangeBar" height="450" :options="chartOptions" :series="series"></apexchart>
+      <apexchart :options="chartOptions" :series="series" @click="clickHandler"></apexchart>
     </div>
 
   </div>
@@ -41,7 +41,6 @@ import Editor from '@toast-ui/editor';
 import '@toast-ui/editor/dist/toastui-editor.css'; // Editor's Style
 import VueApexCharts from 'vue3-apexcharts';
 import moment from "moment";
-
 
 
 export default {
@@ -71,7 +70,7 @@ export default {
       chartOptions: {
         chart: {
           height: 450,
-          type: 'rangeBar'
+          type: 'rangeBar',
         },
         plotOptions: {
           bar: {
@@ -92,7 +91,7 @@ export default {
         legend: {
           position: 'top',
           horizontalAlign: 'left'
-        }
+        },
       }
 
     }
@@ -108,7 +107,6 @@ export default {
   },
   methods: {
     addInfo() {
-      console.log(this.newInfo)
       if (this.newInfo == "") {
         alert("내용은 필수 입력값입니다.");
         return;
@@ -143,9 +141,6 @@ export default {
         x: this.newDetail
       }
 
-      const s = VueApexCharts.emits(da)
-
-
       for (let i = 0; i < this.series.length; i++) {
         if (this.newInfo == this.series[i].name) {
           this.series[i].data.push(inputdata);
@@ -174,15 +169,17 @@ export default {
 
       // })
       // this.series[0].name = this.newInfo;
-      console.log(this.series);
+      // console.log(this.series);
       this.newInfo = '';
       this.startDate = '';
       this.endDate = '';
       this.newDetail = '';
       this.nameCheck = false;
+    }, 
+    clickHandler(event, chartContext, config){
+      console.log("click")
+      console.log(config.config.series[config.seriesIndex])
     },
-
   }
-
 }
 </script>
