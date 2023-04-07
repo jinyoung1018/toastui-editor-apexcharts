@@ -129,10 +129,13 @@ export default {
       //       new Date(this.endDate).getTime()],
       //   fillColor:  '#008FFB'
       // });
+      
+      
 
       const ydata = [
         new Date(this.startDate).getTime(),
         new Date(this.endDate).getTime()
+      
       ]
 
       const inputdata =
@@ -178,7 +181,8 @@ export default {
     }, 
     clickHandler(event, chartContext, config){
       console.log("click")
-      console.log(config.config.series[config.seriesIndex])
+      console.log(config.config.series[config.seriesIndex].data[config.dataPointIndex].x)
+      console.log(config)
     },
   }
 }
